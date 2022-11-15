@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE singers SYSTEM "singer.dtd">
+
+<singers>
+    <singer name="Luotianyi_CHN_Meng" id="BK8H76TAEHXWSKDB"/>
+    <singer name="Moqingxian" id="BE9C82Y5FDYNTEDD"/>
+    <singer name="ChuChu" id="BK4CF6P5PHTN4KD6"/>
+    <singer name="YuezhenglingV3" id="BE8A88G3FWXLTEBD"/>
+</singers>
