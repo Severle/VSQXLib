@@ -17,6 +17,7 @@ public class VoiceTable implements ToElement {
     }
 
     public VoiceTable() {
+        this.singers = new SingerList();
     }
 
     public SingerList getSingers() {

@@ -31,6 +31,9 @@ public class Singer implements ToElement {
         this.vPrm = new SingerParameter(singer.getvPrm());
     }
 
+    public Singer() {
+    }
+
     public int getBankSelected() {
         return bankSelected;
     }
@@ -92,5 +95,10 @@ public class Singer implements ToElement {
         vVoice.add(this.vPrm.toElement());
 
         return vVoice;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.parseInt(this.id);
     }
 }
