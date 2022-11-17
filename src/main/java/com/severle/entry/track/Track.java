@@ -14,6 +14,10 @@ public class Track implements ToElement {
 
     private PartList partList;
 
+    {
+        this.partList = new PartList();
+    }
+
     public Track(int no, String name, String comment, PartList partList) {
         this.no = no;
         this.name = name;

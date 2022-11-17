@@ -32,6 +32,18 @@ public class PartList {
         this.list = list;
     }
 
+    public void addPart(Part part) {
+        this.list.add(part);
+    }
+
+    public void removePart(int index) {
+        this.list.remove(index);
+    }
+
+    public Part getPart(int index) {
+        return this.list.get(index);
+    }
+
     public List<Element> toElement() {
         List<Element> l = new ArrayList<>();
 

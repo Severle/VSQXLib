@@ -51,6 +51,10 @@ public class Part implements ToElement {
     }
 
     public Part() {
+        this.partStyle = new Style();
+        this.singer = new PartSinger();
+        this.ccList = new ControlList();
+        this.noteList = new NoteList();
     }
 
     public int getTick() {

@@ -21,6 +21,9 @@ public class NoteList {
         this.notes = new ArrayList<>(noteList.getNotes());
     }
 
+    public NoteList() {
+    }
+
     public List<Note> getNotes() {
         return notes;
     }

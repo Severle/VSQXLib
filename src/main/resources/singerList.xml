@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE singers SYSTEM "singer.dtd">
+<!--<!DOCTYPE singers SYSTEM "singer.dtd">-->
 
 <singers>
     <singer name="Luotianyi_CHN_Meng" id="BK8H76TAEHXWSKDB"/>
