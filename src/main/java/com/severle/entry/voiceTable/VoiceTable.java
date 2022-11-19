@@ -5,6 +5,8 @@ import com.severle.util.ToElement;
 import org.dom4j.Element;
 import org.dom4j.tree.BaseElement;
 
+import java.util.List;
+
 public class VoiceTable implements ToElement {
     private SingerList singers;
 
@@ -14,6 +16,11 @@ public class VoiceTable implements ToElement {
 
     public VoiceTable(VoiceTable voiceTable) {
         this.singers = voiceTable.getSingers();
+    }
+
+    public VoiceTable(Element vVoiceTable) {
+        List<Element> voices = vVoiceTable.elements("vVoice");
+        this.singers = new SingerList(voices, "");
     }
 
     public VoiceTable() {

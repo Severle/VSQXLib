@@ -47,6 +47,22 @@ public class MasterTrack implements ToElement {
         this.tempoValue = masterTrack.getTempoValue();
     }
 
+    public MasterTrack(Element masterTrack) {
+        this.name = masterTrack.elementText("seqName");
+        this.comment = masterTrack.elementText("comment");
+        this.resolution = Integer.parseInt(masterTrack.elementText("resolution"));
+        this.preMeasure = Integer.parseInt(masterTrack.elementText("preMeasure"));
+        Element timeSig = masterTrack.element("timeSig"),
+                tempo = masterTrack.element("tempo");
+
+        this.timeSigM = Integer.parseInt(timeSig.elementText("m"));
+        this.timeSigNu = Integer.parseInt(timeSig.elementText("nu"));
+        this.timeSigDe = Integer.parseInt(timeSig.elementText("de"));
+
+        this.tempoTick = Integer.parseInt(tempo.elementText("t"));
+        this.tempoValue = Integer.parseInt(tempo.elementText("v"));
+    }
+
     public MasterTrack() {
     }
 

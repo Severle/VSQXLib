@@ -21,6 +21,12 @@ public class SingerList {
         this.singers = new ArrayList<>(singerList.getSingers());
     }
 
+    public SingerList(List<Element> voices, String mark) {
+        for (Element vVoice : voices) {
+            this.singers.add(new Singer(vVoice));
+        }
+    }
+
     public SingerList() {
     }
 

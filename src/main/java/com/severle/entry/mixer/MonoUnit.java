@@ -5,6 +5,30 @@ import org.dom4j.tree.BaseElement;
 
 public class MonoUnit extends Unit{
 
+    public MonoUnit(Element monoUnit) {
+        super(monoUnit);
+
+        boolean send = false, mute = false, solo = false;
+
+        if (monoUnit.elementText("sEnable").equals("1"))
+            send = true;
+        if (monoUnit.elementText("m").equals("1"))
+            mute = true;
+        if (monoUnit.elementText("s").equals("1"))
+            solo = true;
+
+        this.setGin(Integer.parseInt(monoUnit.elementText("iGin")));
+        this.setSendLevel(Integer.parseInt(monoUnit.elementText("sLvl")));
+        this.setSend(send);
+        this.setMute(mute);
+        this.setSolo(solo);
+        this.setPan(Integer.parseInt(monoUnit.elementText("pan")));
+        this.setVol(Integer.parseInt(monoUnit.elementText("vol")));
+    }
+
+    public MonoUnit() {
+    }
+
     @Override
     public Element toElement() {
 

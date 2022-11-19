@@ -21,6 +21,12 @@ public class NoteList {
         this.notes = new ArrayList<>(noteList.getNotes());
     }
 
+    public NoteList(List<Element> notes, String mark) {
+        for (Element note : notes) {
+            this.addNote(new Note(note));
+        }
+    }
+
     public NoteList() {
     }
 

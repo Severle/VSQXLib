@@ -5,6 +5,8 @@ import com.severle.util.ToElement;
 import org.dom4j.Element;
 import org.dom4j.tree.BaseElement;
 
+import java.util.List;
+
 public class Track implements ToElement {
     private int no;
 
@@ -32,7 +34,16 @@ public class Track implements ToElement {
         this.partList = new PartList(track.partList);
     }
 
+    public Track(Element vsTrack) {
+        this.no = Integer.parseInt(vsTrack.elementText("tNo"));
+        this.name = vsTrack.elementText("name");
+        this.comment = vsTrack.elementText("comment");
+        List<Element> parts = vsTrack.elements("vsPart");
+        this.partList = new PartList(parts, "");
+    }
+
     public Track() {
+
     }
 
     public int getNo() {

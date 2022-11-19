@@ -23,6 +23,12 @@ public class PartSinger implements ToElement {
         this.programChange = partSinger.getProgramChange();
     }
 
+    public PartSinger(Element singer) {
+        this.tick = Integer.parseInt(singer.elementText("t"));
+        this.bankSelected = Integer.parseInt(singer.elementText("bs"));
+        this.programChange = Integer.parseInt(singer.elementText("pc"));
+    }
+
     public PartSinger() {
     }
 

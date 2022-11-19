@@ -58,6 +58,16 @@ public class ControlList {
         this.XSY = new ArrayList<>(controlList.getXSY());
     }
 
+    public ControlList(List<Element> ccs) {
+        List<ControlPoint> list = new ArrayList<>();
+        for (Element e : ccs) {
+            list.add(new ControlPoint(e));
+        }
+        for (ControlPoint point : list) {
+            this.addControlPoint(point);
+        }
+    }
+
     public ControlList() {
     }
 
@@ -229,6 +239,54 @@ public class ControlList {
 
     public void removeXSY(int index) {
         this.XSY.remove(index);
+    }
+
+    public void addControlPoint(ControlPoint cc) {
+        switch (cc.getType()) {
+            case BRE: {
+                this.addBRE(cc);
+                break;
+            }
+            case BRI: {
+                this.addBRI(cc);
+                break;
+            }
+            case CLE: {
+                this.addCLE(cc);
+                break;
+            }
+            case DYN: {
+                this.addDYN(cc);
+                break;
+            }
+            case GEN: {
+                this.addGEN(cc);
+                break;
+            }
+            case GWL: {
+                this.addGWL(cc);
+                break;
+            }
+            case PBS: {
+                this.addPBS(cc);
+                break;
+            }
+            case PIT: {
+                this.addPIT(cc);
+                break;
+            }
+            case POR: {
+                this.addPOR(cc);
+                break;
+            }
+            case XSY: {
+                this.addXSY(cc);
+                break;
+            }
+            default: {
+                break;
+            }
+        }
     }
 
     public List<Element> toElement() {

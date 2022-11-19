@@ -1,6 +1,7 @@
 package com.severle.entry.mixer;
 
 import com.severle.util.ToElement;
+import org.dom4j.Element;
 
 public abstract class Unit implements ToElement {
     private int id;
@@ -39,6 +40,10 @@ public abstract class Unit implements ToElement {
         this.solo = unit.isSolo();
         this.pan = unit.getPan();
         this.vol = unit.getVol();
+    }
+
+    public Unit(Element unit) {
+
     }
 
     public Unit() {

@@ -5,6 +5,8 @@ import com.severle.util.ToElement;
 import org.dom4j.Element;
 import org.dom4j.tree.BaseElement;
 
+import java.util.List;
+
 public class Mixer implements ToElement {
     private MasterUnit masterUnit;
 
@@ -26,6 +28,17 @@ public class Mixer implements ToElement {
         this.vsUnits = mixer.getVsUnits();
         this.monoUnit = mixer.getMonoUnit();
         this.stUnit = mixer.getStUnit();
+    }
+
+    public Mixer(Element mixer) {
+        this.masterUnit = new MasterUnit(mixer.element("masterUnit"));
+        this.vsUnits = new UnitList();
+
+        List<Element> units = mixer.elements("vsUnit");
+
+        this.vsUnits = new UnitList(units, "");
+        this.monoUnit = new MonoUnit(mixer.element("monoUnit"));
+        this.stUnit = new StUnit(mixer.element("stUnit"));
     }
 
     public Mixer() {

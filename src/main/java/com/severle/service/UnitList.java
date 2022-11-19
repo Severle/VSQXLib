@@ -22,6 +22,12 @@ public class UnitList {
         this.vsUnits = new ArrayList<>(unitList.getVsUnits());
     }
 
+    public UnitList(List<Element> units, String mark) {
+        for (Element unit : units) {
+            this.addVsUnit(new VsUnit(unit));
+        }
+    }
+
     public UnitList() {
     }
 

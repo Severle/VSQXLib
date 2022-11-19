@@ -4,6 +4,8 @@ import com.severle.util.ToElement;
 import org.dom4j.Element;
 import org.dom4j.tree.BaseElement;
 
+import java.util.List;
+
 public class Style implements ToElement {
     private int accent;
 
@@ -37,6 +39,46 @@ public class Style implements ToElement {
         this.fallPort = style.getFallPort();
         this.opening = style.getOpening();
         this.risePort = style.getRisePort();
+    }
+
+    public Style(Element pStyle) {
+        List<Element> list = pStyle.elements("v");
+
+        for (Element e : list) {
+            switch (e.attributeValue("id")) {
+                case "accent" : {
+                    this.accent = Integer.parseInt(e.getText());
+                    break;
+                }
+                case "bendDep" : {
+                    this.bendDep = Integer.parseInt(e.getText());
+                    break;
+                }
+                case "bendLen" : {
+                    this.bendLen = Integer.parseInt(e.getText());
+                    break;
+                }
+                case "decay" : {
+                    this.decay = Integer.parseInt(e.getText());
+                    break;
+                }
+                case "fallPort" : {
+                    this.fallPort = Integer.parseInt(e.getText());
+                    break;
+                }
+                case "opening" : {
+                    this.opening = Integer.parseInt(e.getText());
+                    break;
+                }
+                case "risePort" : {
+                    this.risePort = Integer.parseInt(e.getText());
+                    break;
+                }
+                default : {
+                    break;
+                }
+            }
+        }
     }
 
     public Style() {

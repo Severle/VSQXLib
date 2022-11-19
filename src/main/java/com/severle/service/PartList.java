@@ -21,6 +21,12 @@ public class PartList {
         this.list = new ArrayList<>(partList.getList());
     }
 
+    public PartList(List<Element> parts, String mark) {
+        for (Element part : parts) {
+            this.addPart(new Part(part));
+        }
+    }
+
     public PartList() {
     }
 

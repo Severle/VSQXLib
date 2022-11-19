@@ -31,6 +31,14 @@ public class Singer implements ToElement {
         this.vPrm = new SingerParameter(singer.getvPrm());
     }
 
+    public Singer(Element vVoice) {
+        this.bankSelected = Integer.parseInt(vVoice.elementText("bs"));
+        this.programChange = Integer.parseInt(vVoice.elementText("pc"));
+        this.id = vVoice.elementText("id");
+        this.name = vVoice.elementText("name");
+        this.vPrm = new SingerParameter(vVoice.element("vPrm"));
+    }
+
     public Singer() {
     }
 

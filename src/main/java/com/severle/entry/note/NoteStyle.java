@@ -2,8 +2,11 @@ package com.severle.entry.note;
 
 import com.severle.entry.part.Style;
 import com.severle.util.ToElement;
+import org.dom4j.Attribute;
 import org.dom4j.Element;
 import org.dom4j.tree.BaseElement;
+
+import java.util.List;
 
 public class NoteStyle extends Style implements ToElement {
     private int vibLen;
@@ -20,6 +23,27 @@ public class NoteStyle extends Style implements ToElement {
         super(style);
         this.vibLen = style.getVibLen();
         this.vibType = style.getVibType();
+    }
+
+    public NoteStyle(Element nStyle) {
+        super(nStyle);
+        List<Element> list = nStyle.elements("v");
+
+        for (Element e : list) {
+            switch (e.attributeValue("id")) {
+                case "vibLen" : {
+                    this.vibLen = Integer.parseInt(e.getText());
+                    break;
+                }
+                case "vibType" : {
+                    this.vibType = Integer.parseInt(e.getText());
+                    break;
+                }
+                default : {
+                    break;
+                }
+            }
+        }
     }
 
     public NoteStyle() {

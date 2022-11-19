@@ -7,6 +7,8 @@ import com.severle.util.ToElement;
 import org.dom4j.Element;
 import org.dom4j.tree.BaseElement;
 
+import java.util.List;
+
 public class Part implements ToElement {
     private int tick;
 
@@ -48,6 +50,21 @@ public class Part implements ToElement {
         this.singer = part.getSinger();
         this.ccList = part.getCcList();
         this.noteList = part.getNoteList();
+    }
+
+    public Part(Element vsPart) {
+        this.tick = Integer.parseInt(vsPart.elementText("t"));
+        this.playTime = Integer.parseInt(vsPart.elementText("playTime"));
+        this.name = vsPart.elementText("name");
+        this.comment = vsPart.elementText("comment");
+        this.isV2Compatible = vsPart.element("sPlug") != null;
+
+        this.partStyle = new Style(vsPart.element("pStyle"));
+        this.singer = new PartSinger(vsPart.element("singer"));
+        List<Element> ccs = vsPart.elements("cc");
+        List<Element> notes = vsPart.elements("note");
+        this.ccList = new ControlList(ccs);
+        this.noteList = new NoteList(notes, "");
     }
 
     public Part() {

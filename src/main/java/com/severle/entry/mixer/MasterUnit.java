@@ -23,6 +23,12 @@ public class MasterUnit implements ToElement {
         this.vol = masterUnit.getVol();
     }
 
+    public MasterUnit(Element masterUnit) {
+        this.dev = Integer.parseInt(masterUnit.elementText("oDev"));
+        this.level = Integer.parseInt(masterUnit.elementText("rLvl"));
+        this.vol = Integer.parseInt(masterUnit.elementText("vol"));
+    }
+
     public MasterUnit() {
     }
 

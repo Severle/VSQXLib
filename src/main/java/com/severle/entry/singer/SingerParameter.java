@@ -39,6 +39,14 @@ public class SingerParameter implements ToElement {
         this.ope = singerParameter.getOpe();
     }
 
+    public SingerParameter(Element vPrm) {
+        this.bre = Integer.parseInt(vPrm.elementText("bre"));
+        this.bri = Integer.parseInt(vPrm.elementText("bri"));
+        this.cle = Integer.parseInt(vPrm.elementText("cle"));
+        this.gen = Integer.parseInt(vPrm.elementText("gen"));
+        this.ope = Integer.parseInt(vPrm.elementText("ope"));
+    }
+
     public SingerParameter() {
     }
 

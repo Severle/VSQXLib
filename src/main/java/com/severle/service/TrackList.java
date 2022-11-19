@@ -21,6 +21,12 @@ public class TrackList {
         this.tracks = new ArrayList<>(trackList.getTracks());
     }
 
+    public TrackList(List<Element> tracks, String mark) {
+        for (Element track : tracks) {
+            this.addTrack(new Track(track));
+        }
+    }
+
     public TrackList() {
     }
 

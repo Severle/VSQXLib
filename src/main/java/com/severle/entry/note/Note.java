@@ -43,6 +43,21 @@ public class Note implements ToElement {
         this.style = new NoteStyle(note.getStyle());
     }
 
+    public Note(Element note) {
+        this.tick = Integer.parseInt(note.elementText("t"));
+        this.during = Integer.parseInt(note.elementText("dur"));
+        this.nativePIT = Integer.parseInt(note.elementText("n"));
+        this.vel = Integer.parseInt(note.elementText("v"));
+        this.lyric = note.elementText("y");
+
+        Element p = note.element("p");
+
+        this.lock = !p.attributeValue("lock").equals("0");
+
+        this.phoneme = p.getText();
+        this.style = new NoteStyle(note.element("nStyle"));
+    }
+
     public Note() {
     }
 
@@ -136,7 +151,7 @@ public class Note implements ToElement {
         e.addAttribute("lock", "0");
         e.addCDATA(this.phoneme);
 
-        e.add(this.style.toElement());
+        note.add(this.style.toElement());
 
         return note;
     }
