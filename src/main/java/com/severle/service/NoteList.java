@@ -1,6 +1,6 @@
 package com.severle.service;
 
-import com.severle.entry.note.Note;
+import com.severle.entity.note.Note;
 import org.dom4j.Element;
 
 import java.util.ArrayList;
@@ -44,6 +44,10 @@ public class NoteList {
 
     public void removeNote(int index) {
         this.notes.remove(index);
+    }
+
+    public void removeNote(Note note) {
+        this.notes.remove(note);
     }
 
     public List<Element> toElement() {

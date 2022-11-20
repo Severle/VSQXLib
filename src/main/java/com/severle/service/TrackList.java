@@ -1,9 +1,10 @@
 package com.severle.service;
 
-import com.severle.entry.track.Track;
+import com.severle.entity.track.Track;
 import org.dom4j.Element;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TrackList {
@@ -52,6 +53,7 @@ public class TrackList {
 
     public List<Element> toElement() {
         List<Element> list = new ArrayList<>();
+        Collections.sort(this.tracks);
 
         for (Track track : this.tracks) {
             list.add(track.toElement());

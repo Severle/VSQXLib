@@ -1,6 +1,6 @@
 package com.severle.service;
 
-import com.severle.entry.singer.Singer;
+import com.severle.entity.singer.Singer;
 import org.dom4j.Element;
 
 import java.util.ArrayList;

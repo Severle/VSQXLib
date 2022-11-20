@@ -1,6 +1,6 @@
 package com.severle.service;
 
-import com.severle.entry.mixer.VsUnit;
+import com.severle.entity.mixer.VsUnit;
 import org.dom4j.Element;
 
 import java.util.ArrayList;

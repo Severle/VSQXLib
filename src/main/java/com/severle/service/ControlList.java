@@ -1,6 +1,6 @@
 package com.severle.service;
 
-import com.severle.entry.parameter.ControlPoint;
+import com.severle.entity.parameter.ControlPoint;
 import org.dom4j.Element;
 
 import java.util.ArrayList;
@@ -160,6 +160,10 @@ public class ControlList {
         this.BRE.remove(index);
     }
 
+    public void removeBRE(ControlPoint point) {
+        this.BRE.remove(point);
+    }
+
     public void addBRI(ControlPoint point) {
         this.BRI.add(point);
         Collections.sort(this.BRI);
@@ -167,6 +171,10 @@ public class ControlList {
 
     public void removeBRI(int index) {
         this.BRI.remove(index);
+    }
+
+    public void removeBRI(ControlPoint point) {
+        this.BRI.remove(point);
     }
 
     public void addCLE(ControlPoint point) {
@@ -178,6 +186,10 @@ public class ControlList {
         this.CLE.remove(index);
     }
 
+    public void removeCLE(ControlPoint point) {
+        this.CLE.remove(point);
+    }
+
     public void addDYN(ControlPoint point) {
         this.DYN.add(point);
         Collections.sort(this.DYN);
@@ -185,6 +197,10 @@ public class ControlList {
 
     public void removeDYN(int index) {
         this.DYN.remove(index);
+    }
+
+    public void removeDYN(ControlPoint point) {
+        this.DYN.remove(point);
     }
 
     public void addGEN(ControlPoint point) {
@@ -196,6 +212,10 @@ public class ControlList {
         this.GEN.remove(index);
     }
 
+    public void removeGEN(ControlPoint point) {
+        this.GEN.remove(point);
+    }
+
     public void addGWL(ControlPoint point) {
         this.GWL.add(point);
         Collections.sort(this.GWL);
@@ -203,6 +223,10 @@ public class ControlList {
 
     public void removeGWL(int index) {
         this.GWL.remove(index);
+    }
+
+    public void removeGWL(ControlPoint point) {
+        this.GWL.remove(point);
     }
 
     public void addPBS(ControlPoint point) {
@@ -214,6 +238,10 @@ public class ControlList {
         this.PBS.remove(index);
     }
 
+    public void removePBS(ControlPoint point) {
+        this.PBS.remove(point);
+    }
+
     public void addPIT(ControlPoint point) {
         this.PIT.add(point);
         Collections.sort(this.PIT);
@@ -221,6 +249,10 @@ public class ControlList {
 
     public void removePIT(int index) {
         this.PIT.remove(index);
+    }
+
+    public void removePIT(ControlPoint point) {
+        this.PIT.remove(point);
     }
 
     public void addPOR(ControlPoint point) {
@@ -232,6 +264,10 @@ public class ControlList {
         this.POR.remove(index);
     }
 
+    public void removePOR(ControlPoint point) {
+        this.POR.remove(point);
+    }
+
     public void addXSY(ControlPoint point) {
         this.XSY.add(point);
         Collections.sort(this.XSY);
@@ -239,6 +275,10 @@ public class ControlList {
 
     public void removeXSY(int index) {
         this.XSY.remove(index);
+    }
+
+    public void removeXSY(ControlPoint point) {
+        this.XSY.remove(point);
     }
 
     public void addControlPoint(ControlPoint cc) {
@@ -281,6 +321,54 @@ public class ControlList {
             }
             case XSY: {
                 this.addXSY(cc);
+                break;
+            }
+            default: {
+                break;
+            }
+        }
+    }
+
+    public void removeControlPoint(ControlPoint cc) {
+        switch (cc.getType()) {
+            case BRE: {
+                this.removeBRE(cc);
+                break;
+            }
+            case BRI: {
+                this.removeBRI(cc);
+                break;
+            }
+            case CLE: {
+                this.removeCLE(cc);
+                break;
+            }
+            case DYN: {
+                this.removeDYN(cc);
+                break;
+            }
+            case GEN: {
+                this.removeGEN(cc);
+                break;
+            }
+            case GWL: {
+                this.removeGWL(cc);
+                break;
+            }
+            case PBS: {
+                this.removePBS(cc);
+                break;
+            }
+            case PIT: {
+                this.removePIT(cc);
+                break;
+            }
+            case POR: {
+                this.removePOR(cc);
+                break;
+            }
+            case XSY: {
+                this.removeXSY(cc);
                 break;
             }
             default: {

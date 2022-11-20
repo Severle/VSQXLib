@@ -1,17 +1,18 @@
 package com.severle;
 
-import com.severle.entry.mixer.Mixer;
-import com.severle.entry.note.Note;
-import com.severle.entry.parameter.ControlPoint;
-import com.severle.entry.part.Part;
-import com.severle.entry.singer.Singer;
-import com.severle.entry.track.MasterTrack;
-import com.severle.entry.track.MonoTrack;
-import com.severle.entry.track.StTrack;
-import com.severle.entry.track.Track;
-import com.severle.entry.voiceTable.VoiceTable;
+import com.severle.entity.mixer.Mixer;
+import com.severle.entity.note.Note;
+import com.severle.entity.parameter.ControlPoint;
+import com.severle.entity.part.Part;
+import com.severle.entity.singer.Singer;
+import com.severle.entity.track.MasterTrack;
+import com.severle.entity.track.MonoTrack;
+import com.severle.entity.track.StTrack;
+import com.severle.entity.track.Track;
+import com.severle.entity.voiceTable.VoiceTable;
 import com.severle.service.TrackList;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -129,6 +130,24 @@ public abstract class VSQX {
         this.stTrack = stTrack;
     }
 
+    public Track getTrack(int index) {
+        return this.tracks.getTrack(index);
+    }
+
+
+    protected void numberAdd() {
+        this.trackNumber++;
+    }
+
+    protected void numberMinus() {
+        this.trackNumber--;
+    }
+
+    public void sortAll() {
+        Collections.sort(this.mixer.getVsUnits().getVsUnits());
+        Collections.sort(this.tracks.getTracks());
+    }
+
 
 
 
@@ -148,7 +167,7 @@ public abstract class VSQX {
 
     public abstract void removePart(int trackIndex, Part refPart);
 
-    public abstract void addNewSinger(String SingerName);
+    public abstract void addNewSinger(String singerName);
 
-    public abstract void setPartSinger(int trackIndex, int partIndex, String singerName);
+    public abstract void setPartSinger(int trackIndex, int partIndex, Singer singer);
 }

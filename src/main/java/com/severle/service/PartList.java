@@ -1,6 +1,6 @@
 package com.severle.service;
 
-import com.severle.entry.part.Part;
+import com.severle.entity.part.Part;
 import org.dom4j.Element;
 
 import java.util.ArrayList;
